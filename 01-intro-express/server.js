@@ -9,7 +9,7 @@ app.use(express.json()) // Para que pueda leer el body de las peticiones POST
 
 // 4 Crear las rutas de la aplicación
 app.get('/', (request, response) => {
-  response.send('Hola api de Devf')
+  response.send('Hola api de Devf Fran 2')
 })
 
 // 5 Levantar el servidor
