@@ -17,10 +17,27 @@ router.get('/api/v1/pets', (request, response) => {
      return
   }
   const filteredPets = petList.pets.filter((pet) => {
-    return pet.age = age || pet.type === type
+    return pet.age == age || pet.type == type
   })
   response.status(200).send(filteredPets)
   return
+})
+
+//Params
+// Son variables que se mandan en la url, y son definidas por nosotros
+// Se definen con :nombreVariable
+//Rutas dinamicas
+// URL/api/v1/pets/1
+
+router.get('/api/v1/pets/:id', (request,response)=> {
+  console.log('Params', request.params)
+  const onePet = petList.pets.find((pet)=> pet.id == request.params.id)
+
+  onePet ? response.status(200).send(onePet) :
+  response.status(404).send({
+    message: 'Pet not found'
+  })
+
 })
 
 module.exports = router
