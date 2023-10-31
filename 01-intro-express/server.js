@@ -2,6 +2,7 @@
 const express = require('express')
 // 2 Crear una aplicación de express (instanciarla)
 const app = express()
+const petsRouter = require('./api/v1/pets.js')
 
 // 3 Configurar la aplicación de express
 app.use(express.urlencoded({ extended: true })) // Para que pueda leer el body de las peticiones POST
@@ -11,6 +12,8 @@ app.use(express.json()) // Para que pueda leer el body de las peticiones POST
 app.get('/', (request, response) => {
   response.send('Hola api de Devf Fran 2')
 })
+
+app.use(petsRouter)
 
 // 5 Levantar el servidor
 app.listen(3000, () => {
