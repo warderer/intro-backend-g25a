@@ -3,7 +3,8 @@ const express = require('express')
 // 2 Crear una aplicación de express (instanciarla)
 const app = express()
 const petsRouter = require('./api/v1/pets.js')
-
+const cakesRouter = require('./api/v1/cakes.js')
+const pokemonsRouter = require('./api/v1/pokemons.js')
 // 3 Configurar la aplicación de express
 app.use(express.urlencoded({ extended: true })) // Para que pueda leer el body de las peticiones POST
 app.use(express.json()) // Para que pueda leer el body de las peticiones POST
@@ -14,6 +15,8 @@ app.get('/', (request, response) => {
 })
 
 app.use(petsRouter)
+app.use(cakesRouter)
+app.use(pokemonsRouter)
 
 // 5 Levantar el servidor
 app.listen(3000, () => {
