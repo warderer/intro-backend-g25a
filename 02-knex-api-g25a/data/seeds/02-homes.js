@@ -75,7 +75,8 @@ exports.seed = async function (knex) {
       description: 'Step back in time in this historic townhouse',
       guests: 6,
       address: '222 Heritage Street',
-      rental_price: 2000
+      rental_price: 2000,
+      fk_user: 3
     },
     {
       house_id: 9,
