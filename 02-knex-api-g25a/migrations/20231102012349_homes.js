@@ -38,3 +38,20 @@ exports.down = function (knex) {
     }
   })
 }
+/* GUIA DE USO RÁPIDO DE KNEX */
+
+// ** CREAR UNA MIGRACIÓN **
+// knex migrate:make nombre_de_la_migracion
+// Esto crea una carpeta llamada migrations en la raíz del proyecto y dentro de ella un archivo con el nombre de la migración que le dimos como parámetro.
+
+// ** EJECUTAR LAS MIGRACIONES SOBRE EXPORTS.UP() **
+// Al ejecutar una migración sobre exports.up() estamos creando o modificando una tabla en la base de datos.
+// Ejecutar la última migración (up): knex migrate:latest
+// Ejecutar todas las migraciones (up): knex migrate:up
+// Ejecutar una migración específica (up): knex migrate:up nombre_de_la_migracion.js
+
+// ** EJECUTAR LAS MIGRACIONES SOBRE EXPORTS.DOWN() **
+// Al ejecutar una migración sobre exports.down() estamos eliminando o modificando una tabla en la base de datos.
+// Ejecutar la última migración (down): knex migrate:rollback
+// Ejecutar todas las migraciones (down): knex migrate:down
+// Ejecutar una migración específica (down): knex migrate:down nombre_de_la_migracion.js
