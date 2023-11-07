@@ -35,8 +35,19 @@ const findOneHome = (req, res) => {
     })
 }
 
+const updateOneHome = (req, res) => {
+  ModelHomes.update(req.params.idHome, req.body)
+    .then(row => {
+      res.status(200).send({ message: 'Home Updated', data: row })
+    })
+    .catch(err => {
+      res.status(400).send({ message: 'Error updating home', err })
+    })
+}
+
 module.exports = {
   createHome,
   findAllHomes,
-  findOneHome
+  findOneHome,
+  updateOneHome
 }
