@@ -22,8 +22,17 @@ const findAll = () => {
     .where('active', true) // Traemos los campos que no hayamos hecho un soft delete
 }
 
+const findOne = (houseId) => {
+  return knex
+    .select(['house_id', 'title', 'description', 'guests', 'address', 'rental_price', 'fk_user', 'active', 'created_at'])
+    .from('homes')
+    .where('house_id', houseId)
+    .where('active', true)
+}
+
 // Paso #4 Exportar mis funciones para que sean accesibles desde el controlador
 module.exports = {
   create,
-  findAll
+  findAll,
+  findOne
 }
